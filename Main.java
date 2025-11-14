@@ -23,6 +23,8 @@ public class Main {
         System.out.println("Min: " + bst.min());
         System.out.println("Max: " + bst.max());
         System.out.println("Is Balanced: " + bst.isBalanced());
+        System.out.println("-------------- Max Depth: " + bst.maxDepth());
+        System.out.println("-------------- Min Value: " + bst.minValue());
         System.out.println();
         
         // Test contains
@@ -60,6 +62,36 @@ public class Main {
             System.out.print(postorder.next() + " ");
         }
         System.out.println("\n");
+
+        //Test doubleTree()
+        BinarySearchTree<Integer> test = new BinarySearchTree<>();
+        
+        // Add elements
+        System.out.println("Creating copy of BST for doubleTree test and sameTree:");
+        test.add(50);
+        test.add(30);
+        test.add(70);
+        test.add(20);
+        test.add(40);
+        test.add(60);
+        test.add(80);
+
+        System.out.println("Are the trees the same? " + bst.sameTree(test));
+
+        System.out.println("Doubling the test tree:");
+        test.doubleTree();
+        System.out.print("Inorder of doubled tree: ");
+        Iterator<Integer> doubled = test.iterator();
+        while(doubled.hasNext()){
+            System.out.print(doubled.next() + " ");
+        }
+        
+        System.out.println();
+
+        System.out.println("Are the trees the same? " + bst.sameTree(test));
+        
+        
+
         
         // Test remove
         System.out.println("=== Test 5: Remove ===");
@@ -78,5 +110,7 @@ public class Main {
             System.out.print(afterRemove.next() + " ");
         }
         System.out.println("\n");
+
+        
     }
 }
